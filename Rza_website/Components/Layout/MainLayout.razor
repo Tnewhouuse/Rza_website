@@ -1,23 +1,43 @@
 ﻿@inherits LayoutComponentBase
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Riget Zoo</title>
+    <link rel="stylesheet" href="css/Style.css">
+</head>
+<body>
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+    <header>
+        <nav>
+            <ul class="navbar">
+                <li><a href="#Book/Buy">Book/Buy</a></li>
+                <li class="dropdown">
+                    <a href="#Explore" class="dropbtn">Explore</a>
+                    <div class="dropdown-content">
+                        <a href="#Animals">Animals</a>
+                        <a href="#Exhibits">Exhibits</a>
+                        <a href="#Events">Events</a>
+                    </div>
+                </li>
+                <li><a href="#Plan">Plan</a></li>
+                <li style="float:right"><a class="active" href="#More">More</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Welcome to Riget Zoo</h1>
+            <p>Explore the wonders of wildlife in a unique and exciting way!</p>
         </div>
+         <img src="img/ElephantLogo.jpg" alt="Elephant" class="hero-image">
+    </section>
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+  <section class="content">
+        <img src="img/ElephantLogo.jpg" alt="Elephant" class="content-image">
+    </section>
 
-<div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">🗙</a>
-</div>
+</body>
+</html>
