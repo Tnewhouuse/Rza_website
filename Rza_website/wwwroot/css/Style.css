@@ -111,3 +111,90 @@ header {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* Login Page Styling */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.login-box {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+    .login-box h2 {
+        margin-bottom: 20px;
+        color: #237416;
+        font-size: 2rem;
+    }
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+    .input-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .input-group input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        font-size: 1rem;
+    }
+
+        .input-group input:focus {
+            border-color: #237416;
+            outline: none;
+            box-shadow: 0 0 5px rgba(35, 116, 22, 0.3);
+        }
+
+/*Login ccs Style*/
+
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #237416;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .login-btn:hover {
+        background-color: #1a5b10;
+    }
+
+.login-footer {
+    margin-top: 15px;
+}
+
+    .login-footer p {
+        font-size: 0.9rem;
+        color: #333;
+    }
+
+    .login-footer a {
+        color: #237416;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .login-footer a:hover {
+            text-decoration: underline;
+        }
