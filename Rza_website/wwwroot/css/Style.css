@@ -1,4 +1,4 @@
-﻿/* General Reset */
+﻿/* Home page */
 * {
     margin: 0;
     padding: 0;
@@ -40,7 +40,7 @@ header {
             background-color: #1a5b10;
         }
 
-/* Dropdown Styles */
+/* Dropdown Style */
 .dropdown .dropbtn {
     cursor: pointer;
 }
@@ -71,7 +71,7 @@ header {
     display: block;
 }
 
-/* Hero Section */
+/* Design/Colour/Image */
 .hero {
     display: flex;
     justify-content: space-between;
@@ -100,17 +100,6 @@ header {
     border-radius: 10px;
 }
 
-/* Content Section */
-.content {
-    padding: 50px;
-    text-align: center;
-}
-
-.content-image {
-    width: 60%;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
 
 /* Login Page Styling */
 .login-container {
@@ -162,7 +151,7 @@ header {
             box-shadow: 0 0 5px rgba(35, 116, 22, 0.3);
         }
 
-/*Login ccs Style*/
+/*Login Style*/
 
 .login-btn {
     width: 100%;
