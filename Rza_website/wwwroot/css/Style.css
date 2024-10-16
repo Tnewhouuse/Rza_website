@@ -198,3 +198,72 @@ header {
         .login-footer a:hover {
             text-decoration: underline;
         }
+
+
+/* Booking Form Styles */
+.booking-form {
+    width: 100%;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+    .booking-form h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #237416;
+        font-size: 2rem;
+    }
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        font-size: 1rem;
+        box-sizing: border-box;
+    }
+
+        .form-group input:focus {
+            border-color: #237416;
+            outline: none;
+            box-shadow: 0 0 5px rgba(35, 116, 22, 0.3);
+        }
+
+.btn-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #237416;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-submit:hover {
+        background-color: #1a5b10;
+    }
+
+/* Centering the form and adding space */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
