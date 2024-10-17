@@ -6,54 +6,63 @@
 @page "/Register"
 <link rel=" stylesheet" href="~/css/Style.css" />
 
-<button @onclick=@reg>Register</button>
+@* <button @onclick=@RegisterCustomer> Register</button> *@
 
-@* <div class="login-container">
+<div class="login-container">
     <div class="login-box">
         <h2>Register</h2>
         <form>
             <div class="input-group">
                 <label for="First name">First name</label>
-                <input type="text" id="First name" name="First name" placeholder="Enter your First name" required>
+                <input type="text" id="First name" name="First name" placeholder="Enter your First name" @bind-value=newCustomer.FirstName >
             </div>
              <div class="input-group">
                 <label for="Last name">Last name</label>
-                <input type="text" id="Last name" name="Last name" placeholder="Enter your Last name" required>
+                <input type="text" id="Last name" name="Last name" placeholder="Enter your Last name"@bind-value=newCustomer.LastName >
             </div>
             <div class="input-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                <input type="text" id="username" name="username" placeholder="Enter your username"@bind-value=newCustomer.Username>
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <input type="password" id="password" name="password" placeholder="Enter your password"@bind-value=newCustomer.Password>
             </div>
 
             <div class="input-group">
                 <label for="Email">Email</label>
-                <input type="Email" id="Email" name="Email" placeholder="Enter your Email" required>
+                <input type="Email" id="Email" name="Email" placeholder="Enter your Email"@bind-value=newCustomer.Email>
             </div>
             <div class="input-group">
                 <label for="Phone Number">Phone Number</label>
-                <input type="text" id="Phone Number" name="Phone Number" placeholder="Enter your Phone Number" required>
+                <input type="text" id="Phone Number" name="Phone Number" placeholder="Enter your Phone Number"@bind-value=newCustomer.PhoneNumber >
             </div>
             <div class="input-group">
                 <label for="Postcode">Postcode</label>
-                <input type="text" id="Postcode" name="Postcode" placeholder="Enter your Postcode" required>
+                <input type="text" id="Postcode" name="Postcode" placeholder="Enter your Postcode"@bind-value=newCustomer.Postcode >
             </div> 
+         </Form>
+         <button @onclick=@RegisterCustomer> Register</button>
             
-            <button @onlclick=@RegisterCustomer> Register </button>
-        </form>
-        <div class="login-footer">
+            <div class="login-footer">
             <p>Have an account? <a href="/Login">Login here</a></p>
         </div>
     </div>
-</div> *@
+</div> 
 
 @code
 {
+    private Customer newCustomer = new Customer();
+
     private async Task RegisterCustomer()
+
     {
-        Console.WriteLine("Button as clicked");
+        await CustomerService.AddCustomerAsync(newCustomer);
+        
     }
+
+
+
 }
+
+    
