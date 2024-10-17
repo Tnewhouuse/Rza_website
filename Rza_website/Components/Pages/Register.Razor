@@ -42,7 +42,7 @@
                 <input type="text" id="Postcode" name="Postcode" placeholder="Enter your Postcode"@bind-value=newCustomer.Postcode >
             </div> 
          </Form>
-         <button @onclick=@RegisterCustomer> Register</button>
+         <button type="submit" class="login-btn" @onclick=@RegisterCustomer> Register</button>
             
             <div class="login-footer">
             <p>Have an account? <a href="/Login">Login here</a></p>
