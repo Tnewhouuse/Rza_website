@@ -2,6 +2,7 @@ using Rza_website.Models;
 using Microsoft.EntityFrameworkCore;
 
 using Rza_website.Components;
+using Rza_website.Services;
 
 namespace Rza_website
 {
@@ -18,6 +19,9 @@ namespace Rza_website
             builder.Services.AddDbContext<TlS2302280RzaContext>(options => 
             options.UseMySql(builder.Configuration.GetConnectionString("MySqlConnection"), 
             new MySqlServerVersion(new Version(8, 0, 29))));
+
+            builder.Services.AddScoped<CustomerService>();
+
 
 
             var app = builder.Build();

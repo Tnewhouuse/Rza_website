@@ -1,7 +1,14 @@
-﻿@page "/Register"
+﻿@using Rza_website.Services
+@using Rza_website.Models
+@inject CustomerService CustomerService
+@rendermode InteractiveServer
+
+@page "/Register"
 <link rel=" stylesheet" href="~/css/Style.css" />
 
-<div class="login-container">
+<button @onclick=@reg>Register</button>
+
+@* <div class="login-container">
     <div class="login-box">
         <h2>Register</h2>
         <form>
@@ -9,7 +16,7 @@
                 <label for="First name">First name</label>
                 <input type="text" id="First name" name="First name" placeholder="Enter your First name" required>
             </div>
-            <div class="input-group">
+             <div class="input-group">
                 <label for="Last name">Last name</label>
                 <input type="text" id="Last name" name="Last name" placeholder="Enter your Last name" required>
             </div>
@@ -21,23 +28,32 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password" required>
             </div>
-           
+
             <div class="input-group">
                 <label for="Email">Email</label>
                 <input type="Email" id="Email" name="Email" placeholder="Enter your Email" required>
             </div>
             <div class="input-group">
                 <label for="Phone Number">Phone Number</label>
-                <input type="String" id="Phone Number" name="Phone Number" placeholder="Enter your Phone Number" required>
+                <input type="text" id="Phone Number" name="Phone Number" placeholder="Enter your Phone Number" required>
             </div>
             <div class="input-group">
                 <label for="Postcode">Postcode</label>
-                <input type="Varchar" id="Postcode" name="Postcode" placeholder="Enter your Postcode" required>
-            </div>
-            <button type="submit" class="login-btn">Register</button>
+                <input type="text" id="Postcode" name="Postcode" placeholder="Enter your Postcode" required>
+            </div> 
+            
+            <button @onlclick=@RegisterCustomer> Register </button>
         </form>
         <div class="login-footer">
             <p>Have an account? <a href="/Login">Login here</a></p>
         </div>
     </div>
-</div>
+</div> *@
+
+@code
+{
+    private async Task RegisterCustomer()
+    {
+        Console.WriteLine("Button as clicked");
+    }
+}
