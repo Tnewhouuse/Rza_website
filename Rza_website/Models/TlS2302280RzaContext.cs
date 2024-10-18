@@ -22,8 +22,8 @@ public partial class TlS2302280RzaContext : DbContext
 
     public virtual DbSet<Roombooking> Roombookings { get; set; }
 
-    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //    => optionsBuilder.UseMySql("name=MySqlConnection", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.29-mysql"));
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        => optionsBuilder.UseMySql("name=MySqlConnection", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.29-mysql"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -43,9 +43,7 @@ public partial class TlS2302280RzaContext : DbContext
 
             entity.HasIndex(e => e.Username, "username").IsUnique();
 
-            entity.Property(e => e.CustomerId)
-                .ValueGeneratedNever()
-                .HasColumnName("customerID");
+            entity.Property(e => e.CustomerId).HasColumnName("customerID");
             entity.Property(e => e.DateOfBirth).HasColumnName("dateOfBirth");
             entity.Property(e => e.Email)
                 .HasMaxLength(50)
