@@ -258,8 +258,130 @@ body {
 }
 
 /*Plan*/
+image-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh;
+}
+
 hero-image1 {
 width:500px;
 height: auto
 
+
 }
+/*Explore page*/
+explore-section {
+    background-color: #fff;
+    padding: 50px;
+    text-align: center;
+}
+
+.explore-section h1 {
+    font-size: 2.5rem;
+    color: #237416;
+    margin-bottom: 20px;
+}
+
+.explore-section p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.explore-options {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.explore-item {
+    background-color: #f4f4f4;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+    .explore-item:hover {
+        transform: translateY(-10px);
+    }
+
+    .explore-item img {
+        width: 100px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+    }
+
+    .explore-item h2 {
+        color: #237416;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .explore-item p {
+        font-size: 1rem;
+        color: #333;
+    }
+
+/* General Page Section Styling For explore pages */
+.animals-section, .exhibits-section, .events-section {
+    background-color: #fff;
+    padding: 50px;
+    text-align: center;
+}
+
+    .animals-section h1, .exhibits-section h1, .events-section h1 {
+        font-size: 2.5rem;
+        color: #237416;
+        margin-bottom: 20px;
+    }
+
+    .animals-section p, .exhibits-section p, .events-section p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 40px;
+    }
+
+/* List Item Styling */
+.animal-list, .exhibit-list, .event-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.animal-item, .exhibit-item, .event-item {
+    background-color: #f4f4f4;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+    .animal-item:hover, .exhibit-item:hover, .event-item:hover {
+        transform: translateY(-10px);
+    }
+
+    .animal-item img, .exhibit-item img, .event-item img {
+        width: 100px;
+        margin-bottom: 15px;
+        border-radius: 50%;
+    }
+
+    .animal-item h2, .exhibit-item h2, .event-item h2 {
+        color: #237416;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .animal-item p, .exhibit-item p, .event-item p {
+        font-size: 1rem;
+        color: #333;
+    }
