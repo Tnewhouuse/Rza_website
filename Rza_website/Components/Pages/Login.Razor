@@ -1,24 +1,59 @@
-﻿@page "/Login"
-<link rel=" stylesheet" href="~/css/Style.css" />
+﻿@using Rza_website.Models
+@inject Services.CustomerService Customerservice
+@inject NavigationManager NavigationManager
+@rendermode InteractiveServer
 
+@page "/Login"
+
+
+<link rel=" stylesheet" href="~/css/Style.css" />
 <div class="login-container">
     <div class="login-box">
         <h2>Login</h2>
-        <form>
+
+
+        <EditForm Model="newCustomer" OnValidSubmit="HandleValidSubmit" FormName="LoginForm">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
             <div class="input-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                <InputText id="username" @bind-Value="newCustomer.Username" placeholder="Enter your username" required />
             </div>
-            
+
             <div class="input-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <InputText id="password" type="password" @bind-Value="password" placeholder="Enter your password" required />
             </div>
-            
+
             <button type="submit" class="login-btn">Login</button>
-           </form>
+        </EditForm>
+
+
         <div class="login-footer">
             <p>Don't have an account? <a href="/Register">Register here</a></p>
         </div>
     </div>
 </div>
+
+@code{
+    private Customer newCustomer = new Customer();
+    private string password;
+
+    private async Task HandleValidSubmit()
+    {
+        newCustomer.Password = password;
+        newCustomer = await Customerservice.LogIn(newCustomer);
+        if (newCustomer == null)
+        {
+            Console.WriteLine("Login in invalid");
+        }
+        else
+        {
+            NavigationManager.NavigateTo("/account");
+        }
+    }
+}
+
+
+

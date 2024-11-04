@@ -290,10 +290,10 @@ explore-section {
     margin-bottom: 40px;
 }
 
-.explore-options {
+.explore-list {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 .explore-item {

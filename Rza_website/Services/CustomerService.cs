@@ -17,6 +17,15 @@ namespace Rza_website.Services
         {
             await _context.Customers.AddAsync(customer);
             await _context.SaveChangesAsync();
+
+        }
+        public async Task<Customer> LogIn(Customer customer)
+        {
+
+            return await _context.Customers.FirstOrDefaultAsync(
+                c => c.Username == customer.Username &&
+                c.Password == customer.Password);
+        
         }
 
     }
