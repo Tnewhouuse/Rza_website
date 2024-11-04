@@ -19,7 +19,7 @@ namespace Rza_website.Services
             await _context.SaveChangesAsync();
 
         }
-        public async Task<Customer> LogIn(Customer customer)
+        public async Task<Customer?> LogIn(Customer customer)
         {
 
             return await _context.Customers.FirstOrDefaultAsync(
