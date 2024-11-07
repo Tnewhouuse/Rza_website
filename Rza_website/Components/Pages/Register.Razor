@@ -13,33 +13,33 @@
         <h2>Register</h2>
         <form>
             <div class="input-group">
-                <label for="First name">First name</label>
-                <input type="text" id="First name" name="First name" placeholder="Enter your First name" @bind-value=newCustomer.FirstName >
-            </div>
+                <label for="Firstname">First name</label>
+                <input type="text" id="Firstname" name="Firstname" placeholder="Enter your First name" @bind-value=newCustomer.FirstName required />
+            </div> 
              <div class="input-group">
                 <label for="Last name">Last name</label>
-                <input type="text" id="Last name" name="Last name" placeholder="Enter your Last name"@bind-value=newCustomer.LastName >
+                <input type="text" id="Last name" name="Last name" placeholder="Enter your Last name"@bind-value=newCustomer.LastName required />
             </div>
             <div class="input-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Enter your username"@bind-value=newCustomer.Username>
+                <input type="text" id="username" name="username" placeholder="Enter your username"@bind-value=newCustomer.Username required/>
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password"@bind-value=newCustomer.Password>
+                <input type="password" id="password" name="password" placeholder="Enter your password"@bind-value=newCustomer.Password required/>
             </div>
 
             <div class="input-group">
                 <label for="Email">Email</label>
-                <input type="Email" id="Email" name="Email" placeholder="Enter your Email"@bind-value=newCustomer.Email>
+                <input type="Email" id="Email" name="Email" placeholder="Enter your Email"@bind-value=newCustomer.Email required/>
             </div>
             <div class="input-group">
                 <label for="Phone Number">Phone Number</label>
-                <input type="text" id="Phone Number" name="Phone Number" placeholder="Enter your Phone Number"@bind-value=newCustomer.PhoneNumber >
+                <input type="text" id="Phone Number" name="Phone Number" placeholder="Enter your Phone Number"@bind-value=newCustomer.PhoneNumber required/>
             </div>
             <div class="input-group">
                 <label for="Postcode">Postcode</label>
-                <input type="text" id="Postcode" name="Postcode" placeholder="Enter your Postcode"@bind-value=newCustomer.Postcode >
+                <input type="text" id="Postcode" name="Postcode" placeholder="Enter your Postcode"@bind-value=newCustomer.Postcode required/>
             </div> 
          </Form>
          <button type="submit" class="login-btn" @onclick=@RegisterCustomer> Register</button>
