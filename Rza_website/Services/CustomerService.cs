@@ -27,7 +27,17 @@ namespace Rza_website.Services
                 c.Password == customer.Password);
         
         }
-
+        public async Task ChangePassword(int customerId, string hashedOldPassword, string hashedNewPassword)
+        {
+            Customer? customer = await _context.Customers.SingleOrDefaultAsync(
+                c => c.CustomerId == customerId &&
+                c.Password == hashedOldPassword);
+            if (customer != null)
+            {
+                customer.Password = hashedNewPassword;
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }
 
