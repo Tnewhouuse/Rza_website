@@ -7,48 +7,62 @@
 <link rel=" stylesheet" href="~/css/Style.css" />
 
 @* <button @onclick=@RegisterCustomer> Register</button> *@
+  
 
 <div class="login-container">
     <div class="login-box">
         <h2>Register</h2>
-        <form>
+        <EditForm Model="@newCustomer" OnValidSubmit="@RegisterCustomer">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
             <div class="input-group">
-                <label for="Firstname">First name</label>
-                <input type="text" id="Firstname" name="Firstname" placeholder="Enter your First name" @bind-value=newCustomer.FirstName required />
-            </div> 
-             <div class="input-group">
-                <label for="Last name">Last name</label>
-                <input type="text" id="Last name" name="Last name" placeholder="Enter your Last name"@bind-value=newCustomer.LastName required />
-            </div>
-            <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Enter your username"@bind-value=newCustomer.Username required/>
-            </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password"@bind-value=newCustomer.Password required/>
+                <label for="firstName">First name</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Enter your First name" @bind="newCustomer.FirstName" required />
             </div>
 
             <div class="input-group">
-                <label for="Email">Email</label>
-                <input type="Email" id="Email" name="Email" placeholder="Enter your Email"@bind-value=newCustomer.Email required/>
+                <label for="lastName">Last name</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Enter your Last name" @bind="newCustomer.LastName" required />
             </div>
+
             <div class="input-group">
-                <label for="Phone Number">Phone Number</label>
-                <input type="text" id="Phone Number" name="Phone Number" placeholder="Enter your Phone Number"@bind-value=newCustomer.PhoneNumber required/>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" @bind="newCustomer.Username" required />
             </div>
+
             <div class="input-group">
-                <label for="Postcode">Postcode</label>
-                <input type="text" id="Postcode" name="Postcode" placeholder="Enter your Postcode"@bind-value=newCustomer.Postcode required/>
-            </div> 
-         </Form>
-         <button type="submit" class="login-btn" @onclick=@RegisterCustomer> Register</button>
-            
-            <div class="login-footer">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" @bind="newCustomer.Password" required />
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your Email" @bind="newCustomer.Email" required />
+            </div>
+
+            <div class="input-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter your Phone Number" @bind="newCustomer.PhoneNumber" required />
+            </div>
+
+            <div class="input-group">
+                <label for="postcode">Postcode</label>
+                <input type="text" id="postcode" name="postcode" placeholder="Enter your Postcode" @bind="newCustomer.Postcode" required />
+            </div>
+
+            <button type="submit" class="login-btn" @onclick=@RegisterCustomer> Register</button>
+        </EditForm>
+
+        <div class="login-footer">
             <p>Have an account? <a href="/Login">Login here</a></p>
         </div>
     </div>
-</div> 
+</div>
+
+
+
+
 
 @code
 {
