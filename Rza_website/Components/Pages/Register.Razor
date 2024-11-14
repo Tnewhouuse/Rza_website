@@ -1,8 +1,9 @@
-﻿@using Rza_website.Services
+﻿@page "/Register"
+@using Rza_website.Services
 @using Rza_website.Models
 @inject CustomerService CustomerService
 @inject NavigationManager NavigationManager
-@page "/Register"
+
 <link rel="stylesheet" href="~/css/Style.css" />
 
 <div class="login-container">
@@ -14,7 +15,7 @@
             <div class="success-message">@message</div>
         }
 
-        <EditForm Model="@newCustomer" OnValidSubmit="@RegisterCustomer">
+        <EditForm EditContext="editContext" OnValidSubmit="@RegisterCustomer" FormName="RegisterForm">
             <DataAnnotationsValidator />
             <ValidationSummary />
 
@@ -62,22 +63,31 @@
     </div>
 </div>
 
-@code
-{
+@code {
     private Customer newCustomer = new Customer();
     private string message = string.Empty;
+    private EditContext editContext;
+
+    protected override void OnInitialized()
+    {
+        editContext = new EditContext(newCustomer);
+    }
 
     private async Task RegisterCustomer()
     {
+        // Check if the username already exists
         if (await CustomerService.UsernameExistsAsync(newCustomer.Username))
         {
             message = "Username already exists. Please choose another.";
             return;
         }
 
+        // Hash the password and add the customer to the database
         newCustomer.Password = CustomerService.HashPassword(newCustomer.Password);
         await CustomerService.AddCustomerAsync(newCustomer);
+
+        // Confirm success and navigate to login
         message = "Registration successful! Please log in.";
-        NavigationManager.NavigateTo("/Login");
+        NavigationManager.NavigateTo("/Login", forceLoad: true);
     }
 }
