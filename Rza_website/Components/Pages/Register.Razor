@@ -31,7 +31,7 @@
 
             <div class="input-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Enter your username" @bind="newCustomer.Username" required />
+                <InputText @bind-Value=newCustomer.Username />
             </div>
 
             <div class="input-group">
@@ -67,6 +67,7 @@
     private Customer newCustomer = new Customer();
     private string message = string.Empty;
     private EditContext editContext;
+    
 
     protected override void OnInitialized()
     {
@@ -75,6 +76,10 @@
 
     private async Task RegisterCustomer()
     {
+        if (newCustomer.Username == null)
+        {
+            Console.WriteLine("USERNAME IS NULL");
+        }
         // Check if the username already exists
         if (await CustomerService.UsernameExistsAsync(newCustomer.Username))
         {
