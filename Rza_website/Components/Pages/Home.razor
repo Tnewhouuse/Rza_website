@@ -1,45 +1,6 @@
-﻿@page "/Account"
-@using Rza_website.Models
-@using Rza_website.Utilties
-@using Rza_website.Services
-@inject UserSession UserSession
-@inject NavigationManager NavigationManager
+﻿@page "/"
 
-@rendermode InteractiveServer
-@page "/"
-<link rel="stylesheet" href="css/style.css">
-<div class="hero">
-    <div class="home-content">
-        <h2>Visit Riget Zoo Adventures!</h2>
-    </div>
-</div>
+<PageTitle>Home</PageTitle>
 
-@if (UserSession.UserID == 0)
-{
-    <div class="Home-login">
-    <h3>Welcome,Please Register or Login into a Account</h3>
-    </div>
-}
-else
-{
-    <h1>your userid is @UserSession.UserID</h1>
-    <button onclick=@Modify>Modify your account</button>
-}
-
-@code {
-    private string customerId;
-    private bool dialogShown = false;
-
-    private void ShowDialog()
-    {
-        dialogShown = true;
-    }
-    private void Modify()
-    {
-        NavigationManager.NavigateTo("/modify");
-    }
-}
-
-
-
+<h1></h1>
 

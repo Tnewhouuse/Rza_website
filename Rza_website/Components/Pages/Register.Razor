@@ -1,98 +1,72 @@
-﻿@page "/Register"
-@using Rza_website.Services
+﻿@using Rza_website.Services
 @using Rza_website.Models
 @inject CustomerService CustomerService
 @inject NavigationManager NavigationManager
+@rendermode InteractiveServer
 
-<link rel="stylesheet" href="~/css/Style.css" />
+@page "/Register"
+<link rel=" stylesheet" href="~/css/Style.css" />
+
+@* <button @onclick=@RegisterCustomer> Register</button> *@
 
 <div class="login-container">
     <div class="login-box">
         <h2>Register</h2>
-
-        @if (!string.IsNullOrEmpty(message))
-        {
-            <div class="success-message">@message</div>
-        }
-
-        <EditForm EditContext="editContext" OnValidSubmit="@RegisterCustomer" FormName="RegisterForm">
-            <DataAnnotationsValidator />
-            <ValidationSummary />
-
+        <form>
             <div class="input-group">
-                <label for="firstName">First name</label>
-                <input type="text" id="firstName" name="firstName" placeholder="Enter your First name" @bind="newCustomer.FirstName" required />
+                <label for="First name">First name</label>
+                <input type="text" id="First name" name="First name" placeholder="Enter your First name" @bind-value=newCustomer.FirstName >
             </div>
-
-            <div class="input-group">
-                <label for="lastName">Last name</label>
-                <input type="text" id="lastName" name="lastName" placeholder="Enter your Last name" @bind="newCustomer.LastName" required />
+             <div class="input-group">
+                <label for="Last name">Last name</label>
+                <input type="text" id="Last name" name="Last name" placeholder="Enter your Last name"@bind-value=newCustomer.LastName >
             </div>
-
             <div class="input-group">
                 <label for="username">Username</label>
-                <InputText @bind-Value=newCustomer.Username />
+                <input type="text" id="username" name="username" placeholder="Enter your username"@bind-value=newCustomer.Username>
             </div>
-
             <div class="input-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" @bind="newCustomer.Password" required />
+                <input type="password" id="password" name="password" placeholder="Enter your password"@bind-value=newCustomer.Password>
             </div>
 
             <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your Email" @bind="newCustomer.Email" required />
+                <label for="Email">Email</label>
+                <input type="Email" id="Email" name="Email" placeholder="Enter your Email"@bind-value=newCustomer.Email>
             </div>
-
             <div class="input-group">
-                <label for="phoneNumber">Phone Number</label>
-                <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter your Phone Number" @bind="newCustomer.PhoneNumber" required />
+                <label for="Phone Number">Phone Number</label>
+                <input type="text" id="Phone Number" name="Phone Number" placeholder="Enter your Phone Number"@bind-value=newCustomer.PhoneNumber >
             </div>
-
             <div class="input-group">
-                <label for="postcode">Postcode</label>
-                <input type="text" id="postcode" name="postcode" placeholder="Enter your Postcode" @bind="newCustomer.Postcode" required />
-            </div>
-
-            <button type="submit" class="login-btn">Register</button>
-        </EditForm>
-
-        <div class="login-footer">
+                <label for="Postcode">Postcode</label>
+                <input type="text" id="Postcode" name="Postcode" placeholder="Enter your Postcode"@bind-value=newCustomer.Postcode >
+            </div> 
+         </Form>
+         <button type="submit" class="login-btn" @onclick=@RegisterCustomer> Register</button>
+            
+            <div class="login-footer">
             <p>Have an account? <a href="/Login">Login here</a></p>
         </div>
     </div>
-</div>
+</div> 
 
-@code {
+@code
+{
     private Customer newCustomer = new Customer();
-    private string message = string.Empty;
-    private EditContext editContext;
-    
-
-    protected override void OnInitialized()
-    {
-        editContext = new EditContext(newCustomer);
-    }
 
     private async Task RegisterCustomer()
+
     {
-        if (newCustomer.Username == null)
-        {
-            Console.WriteLine("USERNAME IS NULL");
-        }
-        // Check if the username already exists
-        if (await CustomerService.UsernameExistsAsync(newCustomer.Username))
-        {
-            message = "Username already exists. Please choose another.";
-            return;
-        }
-
-        // Hash the password and add the customer to the database
-        newCustomer.Password = CustomerService.HashPassword(newCustomer.Password);
         await CustomerService.AddCustomerAsync(newCustomer);
+        
+      
+        NavigationManager.NavigateTo("/Account");
 
-        // Confirm success and navigate to login
-        message = "Registration successful! Please log in.";
-        NavigationManager.NavigateTo("/Login", forceLoad: true);
     }
+
+
+
 }
+
+    

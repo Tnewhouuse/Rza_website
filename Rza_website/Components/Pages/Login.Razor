@@ -1,19 +1,16 @@
-﻿@page "/Login"
-@using Rza_website.Models
-@using Rza_website.Utilties
-@inject Rza_website.Services.CustomerService Customerservice
+﻿@using Rza_website.Models
+@inject Services.CustomerService Customerservice
 @inject NavigationManager NavigationManager
-@inject UserSession UserSession
+@rendermode InteractiveServer
 
-<link rel="stylesheet" href="~/css/Style.css" />
+@page "/Login"
+
+
+<link rel=" stylesheet" href="~/css/Style.css" />
 <div class="login-container">
     <div class="login-box">
         <h2>Login</h2>
 
-        @if (!string.IsNullOrEmpty(errorMessage))
-        {
-            <div class="error-message">@errorMessage</div>
-        }
 
         <EditForm Model="newCustomer" OnValidSubmit="HandleValidSubmit" FormName="LoginForm">
             <DataAnnotationsValidator />
@@ -25,12 +22,13 @@
             </div>
 
             <div class="input-group">
-                <label for="Password">Password</label>
-                <InputText id="Password" type="Password" @bind-Value="password" placeholder="Enter your password" required />
+                <label for="password">Password</label>
+                <InputText id="password" type="password" @bind-Value="password" placeholder="Enter your password" required />
             </div>
 
             <button type="submit" class="login-btn">Login</button>
         </EditForm>
+
 
         <div class="login-footer">
             <p>Don't have an account? <a href="/Register">Register here</a></p>
@@ -41,40 +39,21 @@
 @code {
     private Customer newCustomer = new Customer();
     private string password;
-    private string errorMessage = string.Empty;
-
-    protected override async Task OnInitializedAsync()
-    {
-        if (UserSession.UserID != 0)
-        {
-            NavigationManager.NavigateTo("/");
-        }
-    }
 
     private async Task HandleValidSubmit()
     {
-        errorMessage = string.Empty; // Reset error message
-
-        // Check if password is null or empty
-        if (string.IsNullOrEmpty(password))
-        {
-            errorMessage = "Password cannot be empty.";
-            return;
-        }
-
         newCustomer.Password = password;
-
-        // Attempt to log in using the hashed password
-        var loggedInCustomer = await Customerservice.LogIn(newCustomer);
-
-        if (loggedInCustomer == null)
+        newCustomer = await Customerservice.LogIn(newCustomer);
+        if (newCustomer == null)
         {
-            errorMessage = "Invalid username or password. Please try again.";
+            Console.WriteLine("Login in invalid");
         }
         else
         {
-            UserSession.UserID = loggedInCustomer.CustomerId;
-            NavigationManager.NavigateTo("/account");
+            NavigationManager.NavigateTo("/Account");
         }
     }
 }
+
+
+
