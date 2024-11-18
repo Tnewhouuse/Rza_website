@@ -1,4 +1,9 @@
-﻿ @page "/Book"
+﻿@using Rza_website.Services
+@using Rza_website.Models
+@inject AttractionService AttractionService
+
+
+@page "/Book"
 <link rel=" stylesheet" href="~/css/Style.css" />
 
 <h2 style="text-align: center;">Book Your Visit</h2>
@@ -39,3 +44,40 @@
         <button type="submit" class="btn-submit">Submit Booking</button>
     </form>
 </div>
+
+@if (attractions != null)
+{
+    @foreach (Attraction attraction in attractions)
+    {
+        <div>
+            @attraction.Name: £@attraction.Price
+            <button @onclick="@(e => AddTicket(attraction.AttractionId))">Add to Basket</button>
+        </div>
+    }
+    <button>Book Tickets</button>
+}
+else
+{
+    <div>no attractions</div>
+}
+
+
+@code {
+    List<Attraction> attractions;
+    List<Ticket> tickets;
+    protected override async Task OnInitializedAsync()
+    {
+        attractions = await AttractionService.GetAttractionsAsync();
+        tickets = new List<Ticket>();
+    }
+    private void AddTicket(int attractionId)
+    {
+        Ticket newTicket = new Ticket();
+        newTicket.AttractionId = attractionId;
+        newTicket.Date = DateOnly.FromDateTime(DateTime.Now);
+    }
+    private void BookTicekts()
+    {
+
+    }
+}

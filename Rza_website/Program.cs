@@ -21,7 +21,7 @@ namespace Rza_website
             new MySqlServerVersion(new Version(8, 0, 29))));
 
             builder.Services.AddScoped<CustomerService>();
-
+            builder.Services.AddScoped<AttractionService>();
             builder.Services.AddScoped<UserSession>();
             builder.Services.AddSingleton<UserSession>();
 

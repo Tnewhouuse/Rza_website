@@ -26,4 +26,6 @@ public partial class Customer
     public int? LoyaltyPoints { get; set; }
 
     public virtual ICollection<Roombooking> Roombookings { get; set; } = new List<Roombooking>();
+
+    public virtual ICollection<Ticketbooking> Ticketbookings { get; set; } = new List<Ticketbooking>();
 }
