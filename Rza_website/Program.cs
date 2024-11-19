@@ -22,8 +22,7 @@ namespace Rza_website
 
             builder.Services.AddScoped<CustomerService>();
             builder.Services.AddScoped<AttractionService>();
-            builder.Services.AddScoped<UserSession>();
-            //builder.Services.AddSingleton<UserSession>();
+            builder.Services.AddSingleton<UserSession>();
             builder.Services.AddScoped<TicketService>();
             builder.Services.AddScoped<TicketBookingService>();
 

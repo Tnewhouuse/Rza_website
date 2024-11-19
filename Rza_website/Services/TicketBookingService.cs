@@ -14,7 +14,7 @@ namespace Rza_website.Services
         {
             return await _context.Ticketbookings.ToListAsync();
         }
-        public async Task AddTicketAsync(Ticketbooking newTicketbooking)
+        public async Task AddTicketBookingAsync(Ticketbooking newTicketbooking)
         {
             await _context.Ticketbookings.AddAsync(newTicketbooking);
             await _context.SaveChangesAsync();
