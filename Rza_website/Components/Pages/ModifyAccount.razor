@@ -1,11 +1,13 @@
-﻿@* @using RZA_sly.Utilities
-@using RZA_sly.Services
+﻿@using Rza_website.Utilties
+@using Rza_website.Services
 @inject UserSession UserSession
 @inject CustomerService CustomerService
+@inject NavigationManager NavigationManager
 
 @rendermode InteractiveServer
 
-@page "/modify"
+<link rel=" stylesheet" href="~/css/Style.css" />
+@page "/Modify"
 
 <h3>ModifyAccount</h3>
 
@@ -27,8 +29,7 @@
         {
             string hashedNewPassword = PasswordUtils.HashPassword(newPassword);
             string hashedOldPassword = PasswordUtils.HashPassword(oldPassword);
-            await CustomerService.ChangePassword(UserSession.UserId, hashedOldPassword, hashedNewPassword);
+            await CustomerService.ChangePassword(UserSession.UserID, hashedOldPassword, hashedNewPassword);
         }
     }
 }
- *@

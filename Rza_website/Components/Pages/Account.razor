@@ -1,11 +1,42 @@
 ﻿@using Rza_website.Models
-@inject Services.CustomerService Customerservice
+@using Rza_website.Utilties
+@using Rza_website.Services
+@using Rza_website.P
+@inject UserSession UserSession
+@inject CustomerService CustomerService
 @inject NavigationManager NavigationManager
 @rendermode InteractiveServer
 
 @page "/Account"
 
 <link rel=" stylesheet" href="~/css/Style.css" />
-<h1>Welcome to account</h1>
+<PageTitle>Home</PageTitle>
 
+@if (UserSession.UserID == 0)
+{
+    <h1>Welcome to RZA!</h1>
+}
+else
+{
+    <h1>Hello @customerName, Welcome back to RZA!</h1>
+    <p>Modify Account<a href="/Modify">Modify Account</a></p>
+    
+}
 
+@code {
+    private bool dialogShown = false;
+    private string customerName;
+
+    private void ShowDialog()
+    {
+        dialogShown = true;
+    }
+    private void Modify()
+    {
+        NavigationManager.NavigateTo("/Modify");
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        customerName = await CustomerService.GetCustomerNameAsync(UserSession.UserID);
+    }
+}
