@@ -10,7 +10,6 @@
     <Content Remove="Components\Layout\NavMenu.razor" />
     <Content Remove="Components\Pages\Counter.razor" />
     <Content Remove="Components\Pages\Error.razor" />
-    <Content Remove="Components\Pages\ModifyAccount.razor" />
     <Content Remove="Components\Pages\Weather.razor" />
   </ItemGroup>
 
@@ -32,7 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Components\Pages\ModifyAccount.razor" />
     <None Include="wwwroot\css\Style.css" />
   </ItemGroup>
 
