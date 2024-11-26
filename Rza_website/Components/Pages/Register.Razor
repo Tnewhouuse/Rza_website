@@ -15,41 +15,77 @@
         <form>
             <div class="input-group">
                 <label for="First name">First name</label>
-                <input type="text" id="First name" name="First name" placeholder="Enter your First name" @bind-value=newCustomer.FirstName >
+                <input type="text" id="First name" name="First name" placeholder="Enter your First name"
+                       @bind-value=newCustomer.FirstName>
+                @if (string.IsNullOrWhiteSpace(newCustomer.FirstName))
+                {
+                    <span class="error-message">First name is required.</span>
+                }
             </div>
-             <div class="input-group">
+            <div class="input-group">
                 <label for="Last name">Last name</label>
-                <input type="text" id="Last name" name="Last name" placeholder="Enter your Last name"@bind-value=newCustomer.LastName >
+                <input type="text" id="Last name" name="Last name" placeholder="Enter your Last name"
+                       @bind-value=newCustomer.LastName>
+                @if (string.IsNullOrWhiteSpace(newCustomer.LastName))
+                {
+                    <span class="error-message">Last name is required.</span>
+                }
             </div>
             <div class="input-group">
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Enter your username"@bind-value=newCustomer.Username>
+                <input type="text" id="username" name="username" placeholder="Enter your username"
+                       @bind-value=newCustomer.Username>
+                @if (string.IsNullOrWhiteSpace(newCustomer.Username) || newCustomer.Username.Length < 4)
+                {
+                    <span class="error-message">Username must be at least 4 characters long.</span>
+                }
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password"@bind-value=newCustomer.Password>
+                <input type="password" id="password" name="password" placeholder="Enter your password"
+                       @bind-value=newCustomer.Password>
+                @if (string.IsNullOrWhiteSpace(newCustomer.Password) || newCustomer.Password.Length < 6)
+                {
+                    <span class="error-message">Password must be at least 6 characters long.</span>
+                }
             </div>
-
             <div class="input-group">
                 <label for="Email">Email</label>
-                <input type="Email" id="Email" name="Email" placeholder="Enter your Email"@bind-value=newCustomer.Email>
+                <input type="email" id="Email" name="Email" placeholder="Enter your Email"
+                       @bind-value=newCustomer.Email>
+                @if (string.IsNullOrWhiteSpace(newCustomer.Email) || !new System.ComponentModel.DataAnnotations.EmailAddressAttribute().IsValid(newCustomer.Email))
+                {
+                    <span class="error-message">Enter a valid email address.</span>
+                }
             </div>
             <div class="input-group">
                 <label for="Phone Number">Phone Number</label>
-                <input type="text" id="Phone Number" name="Phone Number" placeholder="Enter your Phone Number"@bind-value=newCustomer.PhoneNumber >
+                <input type="text" id="Phone Number" name="Phone Number" placeholder="Enter your Phone Number"
+                       @bind-value=newCustomer.PhoneNumber>
+                @if (string.IsNullOrWhiteSpace(newCustomer.PhoneNumber) || !System.Text.RegularExpressions.Regex.IsMatch(newCustomer.PhoneNumber, @"^\d{10}$"))
+                {
+                    <span class="error-message">Enter a valid 10-digit phone number.</span>
+                }
             </div>
             <div class="input-group">
                 <label for="Postcode">Postcode</label>
-                <input type="text" id="Postcode" name="Postcode" placeholder="Enter your Postcode"@bind-value=newCustomer.Postcode >
-            </div> 
-         </Form>
-         <button type="submit" class="login-btn" @onclick=@RegisterCustomer> Register</button>
-            
-            <div class="login-footer">
+                <input type="text" id="Postcode" name="Postcode" placeholder="Enter your Postcode"
+                       @bind-value=newCustomer.Postcode>
+                @if (string.IsNullOrWhiteSpace(newCustomer.Postcode) || newCustomer.Postcode.Length != 6)
+                {
+                    <span class="error-message">Postcode must be 6 characters long.</span>
+                }
+            </div>
+        </form>
+        <button type="submit" class="login-btn" @onclick=@RegisterCustomer> Register</button>
+
+        <div class="login-footer">
             <p>Have an account? <a href="/Login">Login here</a></p>
         </div>
     </div>
-</div> 
+</div>
+
+
 
 @code
 {
