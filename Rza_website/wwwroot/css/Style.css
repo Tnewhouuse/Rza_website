@@ -412,7 +412,7 @@ explore-section {
         font-size: 2rem;
     }
 
-.attraction-list {
+/*.attraction-list {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -503,9 +503,217 @@ explore-section {
     margin-bottom: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
-
+*/
 .error-message {
     color: red;
     font-size: 0.9em;
 }
 
+.highlighted-events ul {
+    text-align: center;
+    padding: 0;
+    list-style-type: none;
+}
+.highlighted-events h2 {
+    text-align: center;
+}
+
+/* General Page Section Styling */
+.animals-section, .exhibit-list-section, .exhibit-info {
+    background-color: #fff;
+    padding: 50px;
+    text-align: center;
+}
+
+    .animals-section h1, .exhibit-list-section h2, .exhibit-info h2 {
+        font-size: 2.5rem;
+        color: #237416;
+        margin-bottom: 20px;
+    }
+
+    .animals-section p, .exhibit-info p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 40px;
+    }
+
+/* Exhibit Items */
+.exhibit-item {
+    background-color: #f4f4f4;
+    padding: 20px;
+    width: 30%;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    transition: transform 0.3s ease;
+    display: inline-block;
+    vertical-align: top;
+}
+
+    .exhibit-item:hover {
+        transform: translateY(-10px);
+    }
+
+    .exhibit-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+    .exhibit-item h3 {
+        color: #237416;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .exhibit-item p {
+        font-size: 1rem;
+        color: #333;
+    }
+
+/* Exhibit Section Layout */
+.exhibit-list-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Adjusting text alignment and padding in exhibit-info section */
+.exhibit-info {
+    padding: 50px;
+    background-color: #f9f9f9;
+    color: #555;
+}
+
+/* Booking Container */
+.booking-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+    .booking-container h2 {
+        color: #237416;
+        margin-bottom: 20px;
+        font-size: 2rem;
+    }
+
+/* Ticket Options */
+.ticket-options {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.ticket-option {
+    text-align: center;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #237416;
+    margin-bottom: 10px;
+}
+
+.ticket-price {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Add to Basket Button */
+.btn-add-to-basket {
+    padding: 10px 20px;
+    background-color: #237416;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-add-to-basket:hover {
+        background-color: #1a5b10;
+    }
+
+/* Date Picker and Book Button */
+.basket-actions {
+    margin-top: 20px;
+}
+
+    .basket-actions label {
+        font-size: 1rem;
+        color: #333;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+.basket-date-picker {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.btn-book {
+    padding: 10px 20px;
+    background-color: #237416;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-book:hover {
+        background-color: #1a5b10;
+    }
+
+/* Tickets Section */
+.tickets-section {
+    margin-top: 30px;
+}
+
+.ticket-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.ticket-item {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Placeholder text for when no tickets are available */
+.no-tickets {
+    font-size: 1rem;
+    color: #888;
+}
+
+/* No Attractions Available */
+.no-attractions {
+    font-size: 1rem;
+    color: red;
+    margin-top: 20px;
+}
